@@ -1,13 +1,11 @@
 import MainScreen from '../../pages/main-screen/main-screen';
 
-type AppMainFilmProps = {
+type FilmProps = {
   filmTitle: string;
   filmGenre: string;
   filmYear: number;
 }
 
-function App({filmTitle, filmGenre, filmYear}: AppMainFilmProps): JSX.Element {
-  return <MainScreen filmTitle={filmTitle} filmGenre={filmGenre} filmYear={filmYear} />;
-}
+const App = (props: FilmProps) => <MainScreen {...props} />;
 
 export default App;
