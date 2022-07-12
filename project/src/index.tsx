@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
+import type { FilmProps } from './types/types';
 
 const MainMovie = {
   title: 'The Grand Budapest Hotel',
@@ -12,16 +13,16 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const promoFilm = {
-  filmTitle: MainMovie.title,
-  filmGenre: MainMovie.genre,
-  filmYear: MainMovie.year,
+const promoFilm: FilmProps = {
+  title: MainMovie.title,
+  genre: MainMovie.genre,
+  year: MainMovie.year,
 };
 
 root.render(
   <React.StrictMode>
     <App
-      {...promoFilm}
+      promoFilm = { promoFilm }
     />
   </React.StrictMode>,
 );

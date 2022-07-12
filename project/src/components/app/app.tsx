@@ -1,11 +1,6 @@
 import MainScreen from '../../pages/main-screen/main-screen';
+import type { FilmProps } from '../../types/types';
 
-type FilmProps = {
-  filmTitle: string;
-  filmGenre: string;
-  filmYear: number;
-}
-
-const App = (props: FilmProps) => <MainScreen {...props} />;
+const App = ( { promoFilm } : { promoFilm: FilmProps } ) => <MainScreen promoFilm = { promoFilm } />;
 
 export default App;
