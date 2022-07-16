@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from '../../components/movie-card';
+import MovieCard from '../../components/movie-card/movie-card';
 import type { FilmProps } from '../../types/types';
 
 const MainScreen = ( { promoFilm } : { promoFilm: FilmProps } ): JSX.Element => {
