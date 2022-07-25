@@ -5,18 +5,24 @@ import MoviePageScreen from '../../pages/movie-page-screen/movie-page-screen';
 import AddReviewScreen from '../../pages/add-review-screen/add-review-screen';
 import PlayerScreen from '../../pages/player-screen/player-screen';
 import PrivateRoute from '../private-route/private-route';
-
-import type { FilmProps } from '../../types/types';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../const';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 
-const App = ( { promoFilm } : { promoFilm: FilmProps } ) => (
+import type { FilmsProps } from '../../types/film-info';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../const';
+
+const App = ( { promoFilm, films, favoriteFilms }: FilmsProps): JSX.Element => (
   <BrowserRouter>
     <Routes>
       <Route
         path = { AppRoute.Main }
-        element = { <MainScreen promoFilm = { promoFilm } /> }
+        element = {
+          <MainScreen
+            promoFilm = { promoFilm }
+            films = { films }
+            favoriteFilms = { favoriteFilms }
+          />
+        }
       />
       <Route
         path = { AppRoute.SignIn }
@@ -28,13 +34,20 @@ const App = ( { promoFilm } : { promoFilm: FilmProps } ) => (
           <PrivateRoute
             authorizationStatus = { AuthorizationStatus.Auth }
           >
-            <MyListScreen/>
+            <MyListScreen
+              favoriteFilms = { favoriteFilms }
+            />
           </PrivateRoute>
         }
       />
       <Route
         path = { AppRoute.Film }
-        element = { <MoviePageScreen/> }
+        element = {
+          <MoviePageScreen
+            films = { films }
+            favoriteFilms = { favoriteFilms }
+          />
+        }
       />
       <Route
         path = { AppRoute.AddReview }
@@ -42,13 +55,19 @@ const App = ( { promoFilm } : { promoFilm: FilmProps } ) => (
           <PrivateRoute
             authorizationStatus = { AuthorizationStatus.Auth }
           >
-            <AddReviewScreen/>
+            <AddReviewScreen
+              films = { films }
+            />
           </PrivateRoute>
         }
       />
       <Route
         path = { AppRoute.Player }
-        element = { <PlayerScreen/> }
+        element = {
+          <PlayerScreen
+            films = { films }
+          />
+        }
       />
       <Route
         path = "*"
