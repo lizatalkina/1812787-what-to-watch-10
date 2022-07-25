@@ -5,7 +5,8 @@ import { Film } from '../../types/film-info';
 import MovieCard from '../movie-card/movie-card';
 
 const MoviesList = ({ films }: MovieListProps) => {
-  const [hoverMovie, setHovered] = useState<Film | null>(null);
+  // временно отключена проверка неиспользуемой переменной
+  const [hoverMovie, setHovered] = useState<Film | null>(null); // eslint-disable-line @typescript-eslint/no-unused-vars
   return (
     <div className="catalog__films-list">
       {
