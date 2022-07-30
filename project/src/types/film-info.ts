@@ -14,7 +14,7 @@ export type MyListProps = {
 
 export type FilmProps = {
   film: Film;
-
+  hoverMovie: Film | null;
 }
 export type MoviePageProps = {
   films: Film[];

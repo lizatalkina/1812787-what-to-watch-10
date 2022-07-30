@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 const AddReviewForm = (): JSX.Element => {
-  const ratingLength = 10;
+  const RATING_LENGTH = 10;
   const [userReview, setUserReview] = useState({
     rating: 8,
     reviewText: '',
@@ -12,17 +12,17 @@ const AddReviewForm = (): JSX.Element => {
     <form action="#" className="add-review__form">
       <div className="rating">
         <div className="rating__stars">
-          {[...Array(ratingLength)].map((_, i) =>
+          {[...Array(RATING_LENGTH)].map((_, i) =>
             (
-              <React.Fragment key={`star-${ratingLength - i}`}>
-                <input className="rating__input" id={`star-${ratingLength - i}`} type="radio" name="rating" value={ratingLength - i}
-                  checked={userReview.rating === (ratingLength - i)}
+              <React.Fragment key={`star-${RATING_LENGTH - i}`}>
+                <input className="rating__input" id={`star-${RATING_LENGTH - i}`} type="radio" name="rating" value={RATING_LENGTH - i}
+                  checked={userReview.rating === (RATING_LENGTH - i)}
                   onChange={(event) => {
                     const value = Number(event.currentTarget.value);
                     setUserReview({...userReview, rating: value});
                   }}
                 />
-                <label className="rating__label" htmlFor={`star-${ratingLength - i}`}>Rating {ratingLength - i}</label>
+                <label className="rating__label" htmlFor={`star-${RATING_LENGTH - i}`}>Rating {RATING_LENGTH - i}</label>
               </React.Fragment>
             )
           )}
