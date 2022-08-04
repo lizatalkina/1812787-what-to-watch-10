@@ -13,12 +13,12 @@ const MovieCard = ({ film, hoverMovie }: FilmProps): JSX.Element => {
       >
         {(hoverMovie && hoverMovie.id === id) ?
           <VideoPlayer
-            autoPlay={false}
+            isAutoPlay={false}
             isMuted
             id={hoverMovie.id}
             src={hoverMovie.videoLink}
             posterImage={hoverMovie.posterImage}
-            name={hoverMovie.name}
+            //name={hoverMovie.name}
           /> : <img src={previewImage} alt={name} width="280" height="175" />}
       </div>
       <h3 className="small-film-card__title">
